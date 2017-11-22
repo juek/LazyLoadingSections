@@ -11,7 +11,7 @@ Content of sections that have the CSS class &lsquo;lazy-loading-section&rsquo; (
 ## Current Version 
 1.0-b2
 
-See also [Typesetter Home](http://www.typesettercms.com), [Typesetter on GitHub](https://github.com/Typesetter/Typesetter)
+See also [Typesetter Home](http://www.typesettercms.com), [Typesetter on GitHub](https://github.com/Typesetter/Typesetter), [Lazy loading](https://en.wikipedia.org/wiki/Lazy_loading)
 
 ## Requirements ##
 * Typesetter CMS 5.0+
