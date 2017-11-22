@@ -1,0 +1,30 @@
+/*
+######################################################################
+CSS Stylesheet for Typesetter CMS Addon Lazy Loading Sections
+Author: J. Krausz
+Date: 2017-11-22
+Version 1.0-b2
+######################################################################
+*/
+
+.lazy-loading-section .lazy-section-placeholder{
+position:relative;
+text-align:center;
+}
+
+.lazy-loading-section .lazy-section-placeholder:before{
+content:"";
+display:inline-block;
+width:0;
+margin:0;
+height:100%;
+min-height:inherit;
+vertical-align:middle;
+}
+
+.lazy-loading-section .lazy-section-placeholder i.fa{
+display:inline-block;
+vertical-align:middle;
+font-size:3em;
+color:rgba(127,127,127,0.25);
+}
