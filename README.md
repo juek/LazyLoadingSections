@@ -17,7 +17,7 @@ See also [Typesetter Home](http://www.typesettercms.com), [Typesetter on GitHub]
 * Typesetter CMS 5.0+
 
 ## Manual Installation ##
-1. Download the [master ZIP Archive](https://github.com/juek/LazyLoadingSections/archive/master.zip)
+1. Download the [master ZIP archive](https://github.com/juek/LazyLoadingSections/archive/master.zip)
 2. Upload the extracted folder 'LazyLoadingSections-master' to your server into the /addons directory
 3. Install using Typesetter's Admin Toolbox &rarr; Plugins &rarr; Manage &rarr; Available &rarr; Lazy Loading Sections
 
