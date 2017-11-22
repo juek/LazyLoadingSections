@@ -8,10 +8,10 @@ Content of sections that have the CSS class &lsquo;lazy-loading-section&rsquo; (
 * Works basically with all section types *except* wrapper sections
 * Visitors need to have JavaScript enabled
 
+See also [Typesetter Home](http://www.typesettercms.com), [Typesetter on GitHub](https://github.com/Typesetter/Typesetter), [Lazy loading (Wikipedia)](https://en.wikipedia.org/wiki/Lazy_loading)
+
 ## Current Version 
 1.0-b2
-
-See also [Typesetter Home](http://www.typesettercms.com), [Typesetter on GitHub](https://github.com/Typesetter/Typesetter), [Lazy loading (Wikipedia)](https://en.wikipedia.org/wiki/Lazy_loading)
 
 ## Requirements ##
 * Typesetter CMS 5.0+
