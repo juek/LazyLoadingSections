@@ -1,3 +1,5 @@
+From [GitHub.com/customd/jquery-visible](https://github.com/customd/jquery-visible)
+
 Element Onscreen Visibility
 ===========================
 
