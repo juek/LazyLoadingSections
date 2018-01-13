@@ -2,7 +2,7 @@
 ########################################################################
 JavaScript user runtime for Typesetter CMS Addon 'Lazy Loading Sections'
 Author: J. Krausz
-Date: 2017-11-22
+Date: 2018-01-13
 Version 1.0-b2
 ########################################################################
 */
@@ -17,34 +17,33 @@ var LazyLoadingSections = {
       if( LazyLoadingSections.debug ){ 
         console.log(e.type); 
       }
-      $('.lazy-section-placeholder:not(.lazy-section-updating)').each(function(){
-        var $this = $(this);
-        if( !$this.visible(true) ){
-          if( LazyLoadingSections.debug ){ 
-            console.log('not visible: ', $this); 
+      setTimeout( function(){
+        $('.lazy-section-placeholder:not(.lazy-section-updating)').each(function(){
+          var $this = $(this);
+          if( !$this.visible(true) ){
+            if( LazyLoadingSections.debug ){ 
+              console.log('not visible: ', $this); 
+            }
+            return;
           }
-          return;
-        }
-        var url = $this.attr('data-lazy-url');
-        if( !url ){
-          return;
-        }
-        $this.addClass('lazy-section-updating');
-        $this.find('i.fa')
-          .removeClass('fa-ellipsis-h')
-          .addClass('fa-spinner fa-spin fa-pulse');
+          var url = $this.attr('data-lazy-url');
+          if( !url ){
+            return;
+          }
+          $this.addClass('lazy-section-updating');
+          $this.find('i.fa')
+            .removeClass('fa-ellipsis-h')
+            .addClass('fa-spinner fa-spin fa-pulse');
 
-        url = $gp.jPrep(url);
-        setTimeout(function(){
+          url = $gp.jPrep(url);
           $.getJSON(url, function(data, textStatus, jqXHR){
             if( LazyLoadingSections.debug ){ 
               console.log('AJAX response data = ', data); 
             }
             LazyLoadingSections.animateReplace(url, data, textStatus, jqXHR);
           });
-        }, 150);
-
-      });
+        });
+      }, 150);
     });
   },
 
@@ -121,6 +120,9 @@ var LazyLoadingSections = {
     thottle       : 250,  // time in ms, 250 = 4 times/second
     handleEvents  : function(e){
       var event_type = e.type;
+      if( LazyLoadingSections.debug ){ 
+        console.log('Passed event to LazyLoadingSections.eventThrottle.handleEvents. Event type = ' + event_type);
+      }
       var now = +new Date;
       if ( LazyLoadingSections.eventThrottle.last && now < LazyLoadingSections.eventThrottle.last + LazyLoadingSections.eventThrottle.thottle ){
         clearTimeout(LazyLoadingSections.eventThrottle.deferTimer);
