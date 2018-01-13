@@ -12,8 +12,8 @@ var LazyLoadingSections = {
   debug : false,
 
   init  : function(){
-    $(window).on("load resize scroll", LazyLoadingSections.eventThrottle.handleEvents );
-    $(window).on("throttled:load throttled:resize throttled:scroll", function(e){
+    $(window).on("resize scroll", LazyLoadingSections.eventThrottle.handleEvents );
+    $(window).on("load throttled:resize throttled:scroll", function(e){
       if( LazyLoadingSections.debug ){ 
         console.log(e.type); 
       }
@@ -32,7 +32,7 @@ var LazyLoadingSections = {
         $this.addClass('lazy-section-updating');
         $this.find('i.fa')
           .removeClass('fa-ellipsis-h')
-          .addClass('fa-spinner fa-spin fa-step');
+          .addClass('fa-spinner fa-spin fa-pulse');
 
         url = $gp.jPrep(url);
         setTimeout(function(){
