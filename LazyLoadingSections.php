@@ -3,7 +3,7 @@
 ######################################################################
 PHP main class for Typesetter CMS Addon Lazy Loading Sections
 Author: J. Krausz
-Date: 2017-11-22
+Date: 2018-01-15
 Version 1.0-b2
 ######################################################################
 */
@@ -32,15 +32,21 @@ class LazyLoadingSections
    *
    */
   static function SectionToContent($section_data, $section_num){
-    global $page;
-    if( \gp\tool::LoggedIn() || !isset($section_data['lazy_section']) ){
+    global $page, $addonRelativeCode;
+    if( \gp\tool::LoggedIn() || isset($_SESSION['noLazyLoading']) || !isset($section_data['lazy_section']) ){
       return $section_data;
     }
     
     $data_attr  = ' data-lazy-url="' . \gp\tool::GetUrl($page->title) . '?lazy_section=' . $section_data['lazy_section'] . '&type=' . $section_data['type'] . '"'
                 . ' data-lazy-section="' . $section_data['lazy_section'] . '"';
     $section_data['content']  = '<div class="lazy-section-placeholder"' . $data_attr . '><i class="fa fa-ellipsis-h fa-fw"></i>';
-    $section_data['content'] .= '<noscript><p>Please enable JavaScript</p></noscript></div>';
+    $section_data['content'] .= '<noscript>';
+    $section_data['content'] .= '<h3>Lazy Loading Content</h3>';
+    $section_data['content'] .= '<p>Please enable JavaScript or ';
+    $section_data['content'] .= '  <a href="' .  \gp\tool::GetUrl($page->title) . '?disable-lazy-loading">click here</a>';
+    $section_data['content'] .= '  to disable Lazy Loading (using a Session Cookie).</p>';
+    $section_data['content'] .= '</noscript>';
+    $section_data['content'] .= '</div>';
 
     return $section_data;
   }
@@ -69,7 +75,11 @@ class LazyLoadingSections
    */
   static function PageRunScript($cmd){
     global $page;
-    if( ! \gp\tool::LoggedIn() && isset($_GET['jsoncallback']) && isset($_GET['lazy_section']) ){
+    if( !\gp\tool::LoggedIn() && isset($_GET['disable-lazy-loading']) ){
+      session_start();
+      $_SESSION['noLazyLoading'] = true;
+    }
+    if( !\gp\tool::LoggedIn() && isset($_GET['jsoncallback']) && isset($_GET['lazy_section']) ){
       $page->GetFile();
       $lazy_section_id = $_GET['lazy_section'];
       $found = false;
