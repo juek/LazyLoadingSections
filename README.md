@@ -6,7 +6,7 @@ Content of sections that have the CSS class &lsquo;lazy-loading-section&rsquo; (
 * Sections need do be *edited and saved after* the CSS class was applied
 * The Lazy Loading effect will only take place for logged-off users
 * Works basically with all section types *except* wrapper sections
-* Visitors need to have JavaScript enabled
+* Visitors either need to have JavaScript enabled or opt-out (via a session cookie)
 
 See also [Typesetter Home](http://www.typesettercms.com), [Typesetter on GitHub](https://github.com/Typesetter/Typesetter), [Lazy loading (Wikipedia)](https://en.wikipedia.org/wiki/Lazy_loading)
 
