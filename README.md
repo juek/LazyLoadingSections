@@ -1,7 +1,7 @@
 # Lazy Loading Sections for Typesetter CMS #
 
 ## About
-Content of sections that have the CSS class &lsquo;lazy-loading-section&rsquo; (applied via Section Attributes) will be rendered as a *&bull;&bull;&bull;*&nbsp;placeholder which will be dynamically replaced with the actual content not until the section appears on-screen. This way, visitors will get a &lsquo;fast first render&rsquo; and save bandwidth if they do not scroll. 
+Content of sections that have the CSS class &lsquo;lazy-loading-section&rsquo; or &lsquo;be-lazy&rsquo; (applied via Section Attributes) will be rendered as a *&bull;&bull;&bull;*&nbsp;placeholder which will be dynamically replaced with the actual content not until the section appears on-screen. This way, visitors will get a &lsquo;fast first render&rsquo; and save bandwidth if they do not scroll. 
 
 * Sections need do be *edited and saved after* the CSS class was applied
 * The Lazy Loading effect will only take place for logged-off users

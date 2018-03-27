@@ -7,11 +7,13 @@ Version 1.0-b2
 ######################################################################
 */
 
+.be-lazy .lazy-section-placeholder,
 .lazy-loading-section .lazy-section-placeholder{
 position:relative;
 text-align:center;
 }
 
+.be-lazy .lazy-section-placeholder:before,
 .lazy-loading-section .lazy-section-placeholder:before{
 content:"";
 display:inline-block;
@@ -22,6 +24,7 @@ min-height:inherit;
 vertical-align:middle;
 }
 
+.be-lazy .lazy-section-placeholder i.fa,
 .lazy-loading-section .lazy-section-placeholder i.fa{
 display:inline-block;
 vertical-align:middle;

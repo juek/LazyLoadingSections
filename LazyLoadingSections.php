@@ -60,9 +60,16 @@ class LazyLoadingSections
   static function SaveSection($return, $section_num, $type){
     global $page;
     $section = $page->file_sections[$section_num];
-    $lazy_section_id = \gp\tool::RandomString(8);
-    if( $section['type'] != 'wrapper_section' && isset($section['attributes']['class']) && strpos($section['attributes']['class'], 'lazy-loading-section') !== false ){
-      $page->file_sections[$section_num]['lazy_section'] = $lazy_section_id;
+    if( $section['type'] != 'wrapper_section' ){
+      if( isset($section['attributes']['class']) 
+          && ( strpos($section['attributes']['class'], 'lazy-loading-section') !== false 
+               || strpos($section['attributes']['class'], 'be-lazy') !== false )
+      ){
+        $lazy_section_id = \gp\tool::RandomString(8);
+        $page->file_sections[$section_num]['lazy_section'] = $lazy_section_id;
+      }else{
+        unset($page->file_sections[$section_num]['lazy_section']);
+      }
     }
     return $return;
   }
